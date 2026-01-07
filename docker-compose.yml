@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: urso-db:16
+    container_name: urso-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+
+    ports:
+      - "5431:5432"
+
+    volumes:
+      # volume de dados
+      - urso-db-data:/var/lib/postgresql/data
+
+      # script de inicialização
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+volumes:
+  urso-db-data:
+
