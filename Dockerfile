@@ -4,7 +4,7 @@ FROM postgres:16
 # Definir variáveis de ambiente padrão (opcional, podem ser sobrescritas no docker-compose)
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=123
-ENV POSTGRES_DB=postgres
+ENV POSTGRES_DB=urso-db
 
 # Copia qualquer script de inicialização para o diretório padrão
 # OBS: isso é opcional; você pode montar via volumes no Compose
