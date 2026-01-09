@@ -1,5 +1,6 @@
 services:
   postgres:
+    build: .
     image: urso-db:16
     container_name: urso-db
     restart: unless-stopped
@@ -11,6 +12,7 @@ services:
     volumes:
       - urso-db-data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - ./exports:/exports
 
 volumes:
   urso-db-data:
